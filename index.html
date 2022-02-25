@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <h3 class="lorem">Hello World</h3>
-  <p id="ipsum">Some more text here</p>
-  <h3>Pink on white will be hard to read.</h3>
-  <p>This won't be sans-serif.</p>
-  <p style="font-family: cursive">Some cursive text</p>
+  <div>This is a plain div.</div>
+  <p>This is a plain paragraph.</p>
+  <div id="ipsum">This is a div with ipsum id.</div>
+  <p id="ipsum">This is a paragraph with ipsum id.</p>
+  <div class="lorem">This is a div with lorem class.</div>
+  <p class="lorem">This is a paragraph with lorem class.</p>
+  <div class="lorem" id="ipsum">This is a div with lorem class and ipsum id.</div>
+  <p class="lorem" id="ipsum">This is a paragraph with lorem class and ipsum id.</p>
 </html>
 <style>
-  h3 {
-    color: pink;
-  }
-  .lorem {
-    background-color: darkblue;
-  }
   #ipsum {
     font-family: sans-serif;
+  }
+  .lorem {
+    font-family: monospace;
+  }
+  p {
+    font-family: cursive;
   }
 </style>
