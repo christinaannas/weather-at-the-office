@@ -1,6 +1,12 @@
 export class WeatherCardComponent extends HTMLElement {
   constructor() {
     var that = super();
+    that.model = {
+      location: "Richmond, Virginia",
+      tempFahrenheit: 36,
+      weatherCondition: "clear",
+      lastUpdated: "2022-01-31 20:30"
+    };
     const shadowRoot = that.attachShadow({mode: 'open'});
 
     const divElement = document.createElement('div');
@@ -15,8 +21,8 @@ export class WeatherCardComponent extends HTMLElement {
 
   getInnerHTML() {
     return `
-<h3>In Richmond, Virginia,<br/>it is currently 36&deg;F and clear.</h3>
-<p>Last updated: 2022-01-31 20:30</p>
+<h3>In ${this.model.location},<br/>it is currently ${this.model.tempFahrenheit}&deg;F and ${this.model.weatherCondition}.</h3>
+<p>Last updated: ${this.model.lastUpdated}</p>
     `;
   }
 }
