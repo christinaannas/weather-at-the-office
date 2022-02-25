@@ -1,22 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <div>This is a plain div.</div>
-  <p>This is a plain paragraph.</p>
-  <div id="ipsum">This is a div with ipsum id.</div>
-  <p id="ipsum">This is a paragraph with ipsum id.</p>
-  <div class="lorem">This is a div with lorem class.</div>
-  <p class="lorem">This is a paragraph with lorem class.</p>
-  <div class="lorem" id="ipsum">This is a div with lorem class and ipsum id.</div>
-  <p class="lorem" id="ipsum">This is a paragraph with lorem class and ipsum id.</p>
+  <head>
+    <title>Weather Conditions at Ippon Offices</title>
+  </head>
+  <body>
+    <h2>Weather Conditions at Ippon Offices</h2>
+    <div class="weather-card pink">
+      <h3>In Richmond, Virginia,<br/>it is currently 36&deg;F and clear.</h3>
+      <p>Last updated: 2022-01-31 20:30</p>
+    </div>
+    <div class="weather-card purple">
+      <h3>In Washington, District of Columbia,<br/>it is currently 30&deg;F and partly cloudy.</h3>
+      <p>Last updated: 2022-01-31 20:30</p>
+    </div>
+    <div class="weather-card blue">
+      <h3>In New York, New York,<br/>it is currently 28&deg;F and partly cloudy.</h3>
+      <p>Last updated: 2022-01-31 20:15</p>
+    </div>
+    <div class="weather-card green">
+      <h3>In Atlanta, Georgia,<br/>it is currently 43.7&deg;F and clear.</h3>
+      <p>Last updated: 2022-01-31 20:15</p>
+    </div>
+  </body>
+
+  <style>
+    body {
+      text-align: center;
+      font: 14px "JetBrains Mono", "Trebuchet MS", monospace;
+    }
+    .weather-card {
+      width: 75%;
+      border: solid;
+      border-color: black;
+      border-radius: 10px;
+      border-width: 2px;
+      margin: 25px auto;
+    }
+    .weather-card h3 {
+      text-align: center;
+      margin-bottom: 0px;
+    }
+    .weather-card p {
+      text-align: right;
+      padding-right: 10px;
+    }
+    .pink {
+      background-color: snow;
+    }
+    .purple {
+      background-color: ghostwhite;
+    }
+    .blue {
+      background-color: azure;
+    }
+    .green {
+      background-color: honeydew;
+    }
+  </style>
 </html>
-<style>
-  #ipsum {
-    font-family: sans-serif;
-  }
-  .lorem {
-    font-family: monospace;
-  }
-  p {
-    font-family: cursive;
-  }
-</style>
