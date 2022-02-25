@@ -4,7 +4,7 @@ export class WeatherCardComponent extends HTMLElement {
     const shadowRoot = that.attachShadow({mode: 'open'});
 
     const divElement = document.createElement('div');
-    divElement.setAttribute('class', 'weather-card-in-component pink');
+    divElement.setAttribute('class', 'weather-card pink');
     divElement.innerHTML = that.getInnerHTML();
     shadowRoot.appendChild(divElement);
 
