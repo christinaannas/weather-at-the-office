@@ -4,7 +4,7 @@ export class WeatherCardComponent extends HTMLElement {
     const shadowRoot = that.attachShadow({mode: 'open'});
 
     const divElement = document.createElement('div');
-    divElement.setAttribute('class', 'weather-card pink');
+    divElement.setAttribute('class', 'pink');
     divElement.innerHTML = that.getInnerHTML();
     shadowRoot.appendChild(divElement);
 
@@ -22,19 +22,19 @@ export class WeatherCardComponent extends HTMLElement {
 }
 
 const style = `
-.weather-card {
+div {
   width: 75%;
   border: solid;
   border-color: black;
   border-radius: 10px;
-  border-width: 20px;
+  border-width: 2px;
   margin: 25px auto;
 }
-.weather-card h3 {
+h3 {
   text-align: center;
   margin-bottom: 0px;
 }
-.weather-card p {
+p {
   text-align: right;
   padding-right: 10px;
 }
