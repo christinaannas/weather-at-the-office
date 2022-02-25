@@ -9,10 +9,10 @@ export class WeatherCardComponent extends HTMLElement {
     };
     const shadowRoot = that.attachShadow({mode: 'open'});
 
-    const divElement = document.createElement('div');
-    divElement.setAttribute('class', 'pink');
-    divElement.innerHTML = that.getInnerHTML();
-    shadowRoot.appendChild(divElement);
+    that.divElement = document.createElement('div');
+    that.divElement.setAttribute('class', 'pink');
+    that.divElement.innerHTML = that.getInnerHTML();
+    shadowRoot.appendChild(that.divElement);
 
     const styleElement = document.createElement('style');
     styleElement.textContent = style;
@@ -21,6 +21,13 @@ export class WeatherCardComponent extends HTMLElement {
 
   connectedCallback() {
     var that = this;
+    setTimeout(() => {
+      that.model.location = "Somewhere Else, USA";
+      console.log("Updated location to Somewhere Else!");
+      that.divElement.innerHTML = that.getInnerHTML();
+      console.log("Explicitly set innerHTML of the div element.");
+      console.log("Did the location name change on the webpage?");
+    }, 3000);
     setTimeout(() => {
       that.model.location = "Nowhere, USA";
       console.log("Updated location to Nowhere!");
