@@ -19,6 +19,15 @@ export class WeatherCardComponent extends HTMLElement {
     shadowRoot.appendChild(styleElement);
   }
 
+  connectedCallback() {
+    var that = this;
+    setTimeout(() => {
+      that.model.location = "Nowhere, USA";
+      console.log("Updated location to Nowhere!");
+      console.log("Did the location name change on the webpage?");
+    }, 5000);
+  }
+
   getInnerHTML() {
     return `
 <h3>In ${this.model.location},<br/>it is currently ${this.model.tempFahrenheit}&deg;F and ${this.model.weatherCondition}.</h3>
