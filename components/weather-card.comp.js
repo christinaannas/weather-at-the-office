@@ -22,19 +22,19 @@ export class WeatherCardComponent extends HTMLElement {
 }
 
 const style = `
-.weather-card-in-component {
+.weather-card {
   width: 75%;
   border: solid;
   border-color: black;
   border-radius: 10px;
-  border-width: 2px;
+  border-width: 20px;
   margin: 25px auto;
 }
-.weather-card-in-component h3 {
+.weather-card h3 {
   text-align: center;
   margin-bottom: 0px;
 }
-.weather-card-in-component p {
+.weather-card p {
   text-align: right;
   padding-right: 10px;
 }
