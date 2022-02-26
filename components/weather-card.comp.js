@@ -78,9 +78,21 @@ export class WeatherCardComponent extends HTMLElement {
 
   getInnerHTML() {
     return `
-<h3>In ${this.model.location},<br/>it is currently ${this.model.temp ? this.model.temp + "&deg;F" : "an unknown temperature"} and ${this.model.condition}.</h3>
+<h3>In ${this.model.location},<br/>it is currently ${getTemperatureString(this.model.temp)} and ${this.model.condition}.</h3>
 <p>Last updated: ${this.model.updated}</p>
     `;
+
+    function getTemperatureString(temperatureValue) {
+      // guard caluse: catch valid 0 values explicitly
+      if (temperatureValue === 0) {
+        return "0&deg;F";
+      }
+      // if we haven't defined a temperature value, provide a decent string
+      if (!temperatureValue) {
+        return "an unkown temperature";
+      }
+      return `${temperatureValue}&deg;F`;
+    }
   }
 }
 
