@@ -2,11 +2,11 @@ export class WeatherCardComponent extends HTMLElement {
   constructor() {
     var that = super();
     that.model = {
-      location: "Richmond, Virginia",
-      tempFahrenheit: 36,
-      weatherCondition: "clear",
-      lastUpdated: "2022-01-31 20:30",
-      colorClass: "pink"
+      location: "an unknown location",
+      tempFahrenheit: "an unknown temperature",
+      weatherCondition: "unknown conditions",
+      lastUpdated: "unknown",
+      colorClass: null
     };
     const shadowRoot = that.attachShadow({mode: 'open'});
 
