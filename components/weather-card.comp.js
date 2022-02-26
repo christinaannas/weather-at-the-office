@@ -5,18 +5,64 @@ export class WeatherCardComponent extends HTMLElement {
       location: "Richmond, Virginia",
       tempFahrenheit: 36,
       weatherCondition: "clear",
-      lastUpdated: "2022-01-31 20:30"
+      lastUpdated: "2022-01-31 20:30",
+      colorClass: "pink"
     };
     const shadowRoot = that.attachShadow({mode: 'open'});
 
     that.divElement = document.createElement('div');
-    that.divElement.setAttribute('class', 'pink');
-    that.divElement.innerHTML = that.getInnerHTML();
+    that.updateInnerHTML();
+    that.updateClass();
     shadowRoot.appendChild(that.divElement);
 
     const styleElement = document.createElement('style');
     styleElement.textContent = style;
     shadowRoot.appendChild(styleElement);
+  }
+
+  static get observedAttributes() {
+    return ['location', 'temp', 'condition', 'updated', 'color_class'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    var that = this;
+    if (oldValue === newValue) {
+      return;
+    }
+
+    switch (name) {
+      case 'location' : {
+        that.model.location = newValue;
+        break;
+      }
+      case 'temp' : {
+        that.model.tempFahrenheit = newValue;
+        break;
+      }
+      case 'condition' : {
+        that.model.weatherCondition = newValue;
+        break;
+      }
+      case 'updated' : {
+        that.model.lastUpdated = newValue;
+        break;
+      }
+      case 'color_class' : {
+        that.model.colorClass = newValue;
+        that.updateClass();
+        return;
+      }
+    }
+
+    that.updateInnerHTML();
+  }
+
+  updateInnerHTML() {
+    this.divElement.innerHTML = this.getInnerHTML();
+  }
+
+  updateClass() {
+    this.divElement.setAttribute('class', this.model.colorClass);
   }
 
   getInnerHTML() {
