@@ -3,7 +3,7 @@ export class WeatherCardComponent extends HTMLElement {
     var that = super();
     that.model = {
       location: "an unknown location",
-      temp: "an unknown temperature",
+      temp: null,
       condition: "unknown conditions",
       updated: "unknown",
       color_class: "transparent"
@@ -49,7 +49,7 @@ export class WeatherCardComponent extends HTMLElement {
 
   getInnerHTML() {
     return `
-<h3>In ${this.model.location},<br/>it is currently ${this.model.temp}&deg;F and ${this.model.condition}.</h3>
+<h3>In ${this.model.location},<br/>it is currently ${this.model.temp ? this.model.temp + "&deg;F" : "an unknown temperature"} and ${this.model.condition}.</h3>
 <p>Last updated: ${this.model.updated}</p>
     `;
   }
