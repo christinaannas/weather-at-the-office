@@ -20,6 +20,35 @@ export class WeatherCardComponent extends HTMLElement {
     shadowRoot.appendChild(styleElement);
   }
 
+  set props(props) {
+    var that = this;
+
+    var needToUpdateInnerHTML = false;
+    var needToUpdateClass = false;
+
+    for (const [propertyName, propertyValue] of Object.entries(props)) {
+      if (!(that.model[propertyName] === propertyValue)) {
+        that.model[propertyName] = propertyValue;
+      }
+      if (propertyName === 'color_class') {
+        needToUpdateClass = true;
+      } else {
+        needToUpdateInnerHTML = true;
+      }
+    }
+
+    if (needToUpdateInnerHTML) {
+      that.updateInnerHTML();
+    }
+    if (needToUpdateClass) {
+      that.updateClass();
+    }
+  }
+
+  get props() {
+    return this.model;
+  }
+
   static get observedAttributes() {
     return ['location', 'temp', 'condition', 'updated', 'color_class'];
   }
