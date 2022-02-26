@@ -3,10 +3,10 @@ export class WeatherCardComponent extends HTMLElement {
     var that = super();
     that.model = {
       location: "an unknown location",
-      tempFahrenheit: "an unknown temperature",
-      weatherCondition: "unknown conditions",
-      lastUpdated: "unknown",
-      colorClass: null
+      temp: "an unknown temperature",
+      condition: "unknown conditions",
+      updated: "unknown",
+      color_class: "transparent"
     };
     const shadowRoot = that.attachShadow({mode: 'open'});
 
@@ -30,31 +30,13 @@ export class WeatherCardComponent extends HTMLElement {
       return;
     }
 
-    switch (name) {
-      case 'location' : {
-        that.model.location = newValue;
-        break;
-      }
-      case 'temp' : {
-        that.model.tempFahrenheit = newValue;
-        break;
-      }
-      case 'condition' : {
-        that.model.weatherCondition = newValue;
-        break;
-      }
-      case 'updated' : {
-        that.model.lastUpdated = newValue;
-        break;
-      }
-      case 'color_class' : {
-        that.model.colorClass = newValue;
-        that.updateClass();
-        return;
-      }
-    }
+    that.model[name] = newValue;
 
-    that.updateInnerHTML();
+    if (name === 'color_class') {
+      that.updateClass();
+    } else {
+      that.updateInnerHTML();
+    }
   }
 
   updateInnerHTML() {
@@ -62,13 +44,13 @@ export class WeatherCardComponent extends HTMLElement {
   }
 
   updateClass() {
-    this.divElement.setAttribute('class', this.model.colorClass);
+    this.divElement.setAttribute('class', this.model.color_class);
   }
 
   getInnerHTML() {
     return `
-<h3>In ${this.model.location},<br/>it is currently ${this.model.tempFahrenheit}&deg;F and ${this.model.weatherCondition}.</h3>
-<p>Last updated: ${this.model.lastUpdated}</p>
+<h3>In ${this.model.location},<br/>it is currently ${this.model.temp}&deg;F and ${this.model.condition}.</h3>
+<p>Last updated: ${this.model.updated}</p>
     `;
   }
 }
