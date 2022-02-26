@@ -43,7 +43,10 @@ export class IpponWeatherListComponent extends HTMLElement {
     headerElement.innerHTML = "Weather Conditions at Ippon Offices";
     containerElement.appendChild(headerElement);
 
+    console.log("In the IpponWeatherListComponent constructor, before iterating over offices.");
+
     for (const officeObject of that.offices) {
+      console.log("Processing an office object (create element; append child; set attributes).");
       const componentElement = document.createElement('weather-card-component');
       containerElement.appendChild(componentElement);
       for (const [attributeName, attributeValue] of Object.entries(officeObject)) {
@@ -51,6 +54,12 @@ export class IpponWeatherListComponent extends HTMLElement {
       }
     }
 
+    console.log("In the IpponWeatherListComponent constructor, after iterating over offices.");
+
     shadowRoot.appendChild(containerElement);
+  }
+
+  connectedCallback() {
+    console.log("In the IpponWeatherListComponent connectedCallback.");
   }
 }

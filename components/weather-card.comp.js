@@ -1,5 +1,6 @@
 export class WeatherCardComponent extends HTMLElement {
   constructor() {
+    console.log("In the WeatherCardComponent constructor.");
     var that = super();
     that.model = {
       location: "an unknown location",
@@ -20,11 +21,16 @@ export class WeatherCardComponent extends HTMLElement {
     shadowRoot.appendChild(styleElement);
   }
 
+  connectedCallback() {
+    console.log("In the WeatherCardComponent connectedCallback.");
+  }
+
   static get observedAttributes() {
     return ['location', 'temp', 'condition', 'updated', 'color_class'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    console.log("In the WeatherCardComponent attributeChangedCallback.");
     var that = this;
     if (oldValue === newValue) {
       return;
