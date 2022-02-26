@@ -1,6 +1,6 @@
 # Weather At The Office
 
-## The Documents are _In_ The Computer
+## The Documents are _In_ The Computer & Hey, This Looks Familiar!
 Enhancing our HTML and CSS with a custom element written in JS. To follow along, first:
 -  [Install node.js](https://nodejs.org/en/download/).
 
@@ -13,6 +13,3 @@ live-server
 ```
 or:
 - Use a live-server plugin for VSCode or your editor of choice. 
-
-
-## 
