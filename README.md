@@ -13,5 +13,5 @@ npm install -g live-server
 cd weather-at-the-office
 live-server
 ```
-or:=
+or:
 - Use a live-server plugin for VSCode or your editor of choice. 
