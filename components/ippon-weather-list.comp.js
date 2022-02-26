@@ -38,25 +38,19 @@ export class IpponWeatherListComponent extends HTMLElement {
     ];
 
     const shadowRoot = that.attachShadow({mode: 'open'});
+    const containerElement = document.createElement('div');
+    const headerElement = document.createElement('h1');
+    headerElement.innerHTML = "Weather Conditions at Ippon Offices";
+    containerElement.appendChild(headerElement);
 
-    const divElement = document.createElement('div');
-    divElement.innerHTML = that.getInnerHTML();
-
-    shadowRoot.appendChild(divElement);
-  }
-
-  getInnerHTML() {
-    var that = this;
-    const header = "<h1>Weather Conditions at Ippon Offices</h1>";
-
-    function customElementFromOfficeObject(officeObject) {
-      const attributes = Object.entries(officeObject)
-          .map(([attributeName, attributeValue]) => `${attributeName}="${attributeValue}"`);
-          return `<weather-card-component ${attributes.join(" ")}></weather-card-component>`;
+    for (const officeObject of that.offices) {
+      const componentElement = document.createElement('weather-card-component');
+      containerElement.appendChild(componentElement);
+      for (const [attributeName, attributeValue] of Object.entries(officeObject)) {
+        componentElement.setAttribute(attributeName, attributeValue);
+      }
     }
 
-    const officeCards = that.offices
-        .map((officeObject) => customElementFromOfficeObject(officeObject));
-    return header + officeCards.join(" ");
+    shadowRoot.appendChild(containerElement);
   }
 }
