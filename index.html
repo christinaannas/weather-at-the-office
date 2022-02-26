@@ -24,48 +24,26 @@
       updated="2022-01-31 20:30"
       color_class="purple"
     ></weather-card-component>
-    <div class="weather-card blue">
-      <h3>In New York, New York,<br/>it is currently 28&deg;F and partly cloudy.</h3>
-      <p>Last updated: 2022-01-31 20:15</p>
-    </div>
-    <div class="weather-card green">
-      <h3>In Atlanta, Georgia,<br/>it is currently 43.7&deg;F and clear.</h3>
-      <p>Last updated: 2022-01-31 20:15</p>
-    </div>
+    <weather-card-component
+      location="New York, New York"
+      temp="28"
+      condition="partly cloudy"
+      updated="2022-01-31 20:15"
+      color_class="blue"
+    ></weather-card-component>
+    <weather-card-component
+      location="Atlanta, Georgia"
+      temp="43.7"
+      condition="clear"
+      updated="2022-01-31 20:15"
+      color_class="green"
+    ></weather-card-component>
   </body>
 
   <style>
     body {
       text-align: center;
       font: 14px "JetBrains Mono", "Trebuchet MS", monospace;
-    }
-    .weather-card {
-      width: 75%;
-      border: solid;
-      border-color: black;
-      border-radius: 10px;
-      border-width: 2px;
-      margin: 25px auto;
-    }
-    .weather-card h3 {
-      text-align: center;
-      margin-bottom: 0px;
-    }
-    .weather-card p {
-      text-align: right;
-      padding-right: 10px;
-    }
-    .pink {
-      background-color: snow;
-    }
-    .purple {
-      background-color: ghostwhite;
-    }
-    .blue {
-      background-color: azure;
-    }
-    .green {
-      background-color: honeydew;
     }
   </style>
 </html>
