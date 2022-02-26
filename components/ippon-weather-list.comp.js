@@ -46,9 +46,7 @@ export class IpponWeatherListComponent extends HTMLElement {
     for (const officeObject of that.offices) {
       const componentElement = document.createElement('weather-card-component');
       containerElement.appendChild(componentElement);
-      for (const [attributeName, attributeValue] of Object.entries(officeObject)) {
-        componentElement.setAttribute(attributeName, attributeValue);
-      }
+      componentElement.props = officeObject;
     }
 
     shadowRoot.appendChild(containerElement);
