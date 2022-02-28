@@ -83,13 +83,13 @@ export class WeatherCardComponent extends HTMLElement {
     `;
 
     function getTemperatureString(temperatureValue) {
-      // guard caluse: catch valid 0 values explicitly
+      // guard clause: catch valid 0 values explicitly
       if (temperatureValue === 0) {
         return "0&deg;F";
       }
       // if we haven't defined a temperature value, provide a decent string
       if (!temperatureValue) {
-        return "an unkown temperature";
+        return "an unknown temperature";
       }
       return `${temperatureValue}&deg;F`;
     }
