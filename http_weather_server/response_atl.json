@@ -1,0 +1,41 @@
+{
+  "location": {
+    "name": "Atlanta",
+    "region": "Georgia",
+    "country": "USA",
+    "lat": 33.77,
+    "lon": -84.38,
+    "tz_id": "America/New_York",
+    "localtime_epoch": 1646078881,
+    "localtime": "2022-02-28 15:08"
+  },
+  "current": {
+    "last_updated_epoch": 1646074800,
+    "last_updated": "2022-02-28 14:00",
+    "temp_c": 15.9,
+    "temp_f": 60.6,
+    "is_day": 1,
+    "condition": {
+      "text": "Partly cloudy",
+      "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+      "code": 1003
+    },
+    "wind_mph": 4.3,
+    "wind_kph": 6.8,
+    "wind_degree": 110,
+    "wind_dir": "ESE",
+    "pressure_mb": 1022.0,
+    "pressure_in": 30.17,
+    "precip_mm": 0.0,
+    "precip_in": 0.0,
+    "humidity": 38,
+    "cloud": 25,
+    "feelslike_c": 15.9,
+    "feelslike_f": 60.6,
+    "vis_km": 16.0,
+    "vis_miles": 9.0,
+    "uv": 4.0,
+    "gust_mph": 5.8,
+    "gust_kph": 9.4
+  }
+}
