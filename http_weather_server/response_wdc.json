@@ -1,0 +1,41 @@
+{
+  "location": {
+    "name": "Washington",
+    "region": "District of Columbia",
+    "country": "USA",
+    "lat": 38.91,
+    "lon": -77.03,
+    "tz_id": "America/New_York",
+    "localtime_epoch": 1646078876,
+    "localtime": "2022-02-28 15:07"
+  },
+  "current": {
+    "last_updated_epoch": 1646074800,
+    "last_updated": "2022-02-28 14:00",
+    "temp_c": 10.0,
+    "temp_f": 50.0,
+    "is_day": 1,
+    "condition": {
+      "text": "Partly cloudy",
+      "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+      "code": 1003
+    },
+    "wind_mph": 6.9,
+    "wind_kph": 11.2,
+    "wind_degree": 310,
+    "wind_dir": "NW",
+    "pressure_mb": 1024.0,
+    "pressure_in": 30.25,
+    "precip_mm": 0.0,
+    "precip_in": 0.0,
+    "humidity": 28,
+    "cloud": 25,
+    "feelslike_c": 8.7,
+    "feelslike_f": 47.7,
+    "vis_km": 16.0,
+    "vis_miles": 9.0,
+    "uv": 3.0,
+    "gust_mph": 6.7,
+    "gust_kph": 10.8
+  }
+}
