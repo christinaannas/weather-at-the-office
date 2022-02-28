@@ -1,0 +1,41 @@
+{
+  "location": {
+    "name": "Richmond",
+    "region": "Virginia",
+    "country": "USA",
+    "lat": 37.59,
+    "lon": -77.49,
+    "tz_id": "America/New_York",
+    "localtime_epoch": 1646078873,
+    "localtime": "2022-02-28 15:07"
+  },
+  "current": {
+    "last_updated_epoch": 1646074800,
+    "last_updated": "2022-02-28 14:00",
+    "temp_c": 12.2,
+    "temp_f": 54.0,
+    "is_day": 1,
+    "condition": {
+      "text": "Sunny",
+      "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
+      "code": 1000
+    },
+    "wind_mph": 0.0,
+    "wind_kph": 0.0,
+    "wind_degree": 16,
+    "wind_dir": "NNE",
+    "pressure_mb": 1024.0,
+    "pressure_in": 30.24,
+    "precip_mm": 0.0,
+    "precip_in": 0.0,
+    "humidity": 31,
+    "cloud": 0,
+    "feelslike_c": 11.4,
+    "feelslike_f": 52.6,
+    "vis_km": 16.0,
+    "vis_miles": 9.0,
+    "uv": 3.0,
+    "gust_mph": 6.5,
+    "gust_kph": 10.4
+  }
+}
