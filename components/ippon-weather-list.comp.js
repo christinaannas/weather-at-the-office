@@ -33,15 +33,15 @@ export class IpponWeatherListComponent extends HTMLElement {
       const componentElement = document.createElement('weather-card-component');
       containerElement.appendChild(componentElement);
       componentElement.props = officeObject;
+
+      getWeatherData(componentElement.props.location).then(
+        (resolved) => {
+          componentElement.props = resolved;
+        }, 
+        (rejected) => {}
+      );
     }
 
     shadowRoot.appendChild(containerElement);
-  }
-
-  async connectedCallback() {
-    for (const weatherCard of this.shadowRoot.querySelectorAll('weather-card-component')) {
-      const weatherData = await getWeatherData(weatherCard.props.location)
-      weatherCard.props = weatherData;
-    }
   }
 }
