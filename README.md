@@ -27,7 +27,7 @@ npm install
 node weather-server
 ```
 
-Confirm the server is running using an API client like Postman or Insomnia, or use the command line.
+Confirm the server is running using an API client like Postman or Insomnia, or the command line.
 ```
 curl http://localhost:5000/weather-api?q=23230
 ```
