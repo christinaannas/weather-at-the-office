@@ -5,6 +5,7 @@ export class IpponWeatherListComponent extends HTMLElement {
   constructor() {
     var that = super();
     that.offices = [
+      {},
       {
         location: "Richmond, Virginia",
         color_class: "pink"
