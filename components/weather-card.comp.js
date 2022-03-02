@@ -15,9 +15,16 @@ export class WeatherCardComponent extends HTMLElement {
     that.updateClass();
     shadowRoot.appendChild(that.divElement);
 
+    const buttonElement = that.shadowRoot.querySelector('button');
+    buttonElement.addEventListener('click', that.printButtonClick);
+
     const styleElement = document.createElement('style');
     styleElement.textContent = style;
     shadowRoot.appendChild(styleElement);
+  }
+
+  printButtonClick() {
+    console.log(`Button clicked for ${this.model.location ? this.model.location : "unknown location"}.`);
   }
 
   set props(props) {
@@ -79,7 +86,7 @@ export class WeatherCardComponent extends HTMLElement {
   getInnerHTML() {
     return `
 <h3>In ${this.model.location ? this.model.location : "an unknown location"},<br/>it is currently ${getTemperatureString(this.model.temp)} and ${this.model.condition ? this.model.condition : "unknown conditions"}.</h3>
-<p>Last updated: ${this.model.updated ? this.model.updated : "unknown"}</p>
+<p>Last updated: ${this.model.updated ? this.model.updated : "unknown"} <button>Update now</button></p>
     `;
 
     function getTemperatureString(temperatureValue) {
