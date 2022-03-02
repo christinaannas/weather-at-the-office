@@ -16,7 +16,7 @@ export class WeatherCardComponent extends HTMLElement {
     shadowRoot.appendChild(that.divElement);
 
     const buttonElement = that.shadowRoot.querySelector('button');
-    buttonElement.addEventListener('click', that.printButtonClick);
+    buttonElement.addEventListener('click', that.printButtonClick.bind(that));
 
     const styleElement = document.createElement('style');
     styleElement.textContent = style;
