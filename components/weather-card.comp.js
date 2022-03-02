@@ -2,10 +2,10 @@ export class WeatherCardComponent extends HTMLElement {
   constructor() {
     var that = super();
     that.model = {
-      location: "an unknown location",
+      location: null,
       temp: null,
-      condition: "unknown conditions",
-      updated: "unknown",
+      condition: null,
+      updated: null,
       color_class: "transparent"
     };
     const shadowRoot = that.attachShadow({mode: 'open'});
@@ -78,8 +78,8 @@ export class WeatherCardComponent extends HTMLElement {
 
   getInnerHTML() {
     return `
-<h3>In ${this.model.location},<br/>it is currently ${getTemperatureString(this.model.temp)} and ${this.model.condition}.</h3>
-<p>Last updated: ${this.model.updated}</p>
+<h3>In ${this.model.location ? this.model.location : "an unknown location"},<br/>it is currently ${getTemperatureString(this.model.temp)} and ${this.model.condition ? this.model.condition : "unknown conditions"}.</h3>
+<p>Last updated: ${this.model.updated ? this.model.updated : "unknown"}</p>
     `;
 
     function getTemperatureString(temperatureValue) {
