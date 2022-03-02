@@ -16,6 +16,7 @@ export class WeatherCardComponent extends HTMLElement {
     shadowRoot.appendChild(that.divElement);
 
     const buttonElement = that.shadowRoot.querySelector('button');
+    buttonElement.addEventListener('click', that.printButtonClick);
     buttonElement.addEventListener('click', that.printButtonClick.bind(that));
 
     const styleElement = document.createElement('style');
@@ -24,6 +25,7 @@ export class WeatherCardComponent extends HTMLElement {
   }
 
   printButtonClick() {
+    console.log(this);
     console.log(`Button clicked for ${this.model.location ? this.model.location : "unknown location"}.`);
   }
 
