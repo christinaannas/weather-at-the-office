@@ -35,12 +35,12 @@ export class IpponWeatherListComponent extends HTMLElement {
       containerElement.appendChild(componentElement);
       componentElement.props = officeObject;
 
-      // getWeatherData(componentElement.props.location).then(
-      //   (resolved) => {
-      //     componentElement.props = resolved;
-      //   }, 
-      //   (rejected) => {}
-      // );
+      getWeatherData(componentElement.props.location).then(
+        (resolved) => {
+          componentElement.props = resolved;
+        }, 
+        (rejected) => {}
+      );
     }
 
     shadowRoot.appendChild(containerElement);
