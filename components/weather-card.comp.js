@@ -11,13 +11,16 @@ export class WeatherCardComponent extends HTMLElement {
     const shadowRoot = that.attachShadow({mode: 'open'});
 
     that.divElement = document.createElement('div');
-    that.updateInnerHTML();
-    that.updateClass();
-    shadowRoot.appendChild(that.divElement);
-    const buttonElement = document.createElement('button');
+    that.divElement.innerHTML = `
+<h3 class="conditions">${that.getConditionsString()}</h3>
+<p><span class="updatedText">${that.getUpdatedString()}</span> <button class="updateButton">Update now</button></p>
+    `;
+    const buttonElement = that.divElement.querySelector('.updateButton');
     buttonElement.innerHTML = "Update now";
     buttonElement.addEventListener('click', that.printButtonClick.bind(that));
-    shadowRoot.appendChild(buttonElement);
+    that.updateContents();
+    that.updateClass();
+    shadowRoot.appendChild(that.divElement);
 
     const styleElement = document.createElement('style');
     styleElement.textContent = style;
@@ -31,7 +34,7 @@ export class WeatherCardComponent extends HTMLElement {
   set props(props) {
     var that = this;
 
-    var needToUpdateInnerHTML = false;
+    var needToUpdateContents = false;
     var needToUpdateClass = false;
 
     for (const [propertyName, propertyValue] of Object.entries(props)) {
@@ -41,12 +44,12 @@ export class WeatherCardComponent extends HTMLElement {
       if (propertyName === 'color_class') {
         needToUpdateClass = true;
       } else {
-        needToUpdateInnerHTML = true;
+        needToUpdateContents = true;
       }
     }
 
-    if (needToUpdateInnerHTML) {
-      that.updateInnerHTML();
+    if (needToUpdateContents) {
+      that.updateContents();
     }
     if (needToUpdateClass) {
       that.updateClass();
@@ -72,35 +75,37 @@ export class WeatherCardComponent extends HTMLElement {
     if (name === 'color_class') {
       that.updateClass();
     } else {
-      that.updateInnerHTML();
+      that.updateContents();
     }
   }
 
-  updateInnerHTML() {
-    this.divElement.innerHTML = this.getInnerHTML();
+  updateContents() {
+    this.divElement.querySelector('.conditions').innerHTML = this.getConditionsString();
+    this.divElement.querySelector('.updatedText').innerHTML = this.getUpdatedString();
   }
 
   updateClass() {
-    this.divElement.setAttribute('class', this.model.color_class);
+    this.divElement.setAttribute('class', `${this.model.color_class}`);
   }
 
-  getInnerHTML() {
-    return `
-<h3>In ${this.model.location ? this.model.location : "an unknown location"},<br/>it is currently ${getTemperatureString(this.model.temp)} and ${this.model.condition ? this.model.condition : "unknown conditions"}.</h3>
-<p>Last updated: ${this.model.updated ? this.model.updated : "unknown"}</p>
-    `;
-
-    function getTemperatureString(temperatureValue) {
-      // guard clause: catch valid 0 values explicitly
-      if (temperatureValue === 0) {
-        return "0&deg;F";
-      }
-      // if we haven't defined a temperature value, provide a decent string
-      if (!temperatureValue) {
-        return "an unknown temperature";
-      }
-      return `${temperatureValue}&deg;F`;
+  getConditionsString() {
+    return `In ${this.model.location ? this.model.location : "an unknown location"},<br/>it is currently ${this.getTemperatureString(this.model.temp)} and ${this.model.condition ? this.model.condition : "unknown conditions"}.`;
+  }
+  
+  getTemperatureString(temperatureValue) {
+    // guard clause: catch valid 0 values explicitly
+    if (temperatureValue === 0) {
+      return "0&deg;F";
     }
+    // if we haven't defined a temperature value, provide a decent string
+    if (!temperatureValue) {
+      return "an unknown temperature";
+    }
+    return `${temperatureValue}&deg;F`;
+  }
+
+  getUpdatedString() {
+    return `Last updated: ${this.model.updated ? this.model.updated : "unknown"} `;
   }
 }
 
