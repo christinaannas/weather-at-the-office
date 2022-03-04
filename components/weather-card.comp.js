@@ -1,3 +1,5 @@
+import { getWeatherData } from "../util/weather-info.service.mjs";
+
 export class WeatherCardComponent extends HTMLElement {
   constructor() {
     var that = super();
@@ -17,7 +19,7 @@ export class WeatherCardComponent extends HTMLElement {
     `;
     const buttonElement = that.divElement.querySelector('.updateButton');
     buttonElement.innerHTML = "Update now";
-    buttonElement.addEventListener('click', that.printButtonClick.bind(that));
+    buttonElement.addEventListener('click', that.handleButtonClick.bind(that));
     that.updateContents();
     that.updateClass();
     shadowRoot.appendChild(that.divElement);
@@ -27,8 +29,13 @@ export class WeatherCardComponent extends HTMLElement {
     shadowRoot.appendChild(styleElement);
   }
 
-  printButtonClick() {
+  handleButtonClick() {
     console.log(`Button clicked for ${this.model.location ? this.model.location : "unknown location"}.`);
+    if (this.model.location) {
+      getWeatherData(this.model.location).then((resolved) => {
+        this.props = resolved;
+      });
+    }
   }
 
   set props(props) {
