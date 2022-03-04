@@ -13,11 +13,11 @@ export class WeatherCardComponent extends HTMLElement {
     that.divElement = document.createElement('div');
     that.updateInnerHTML();
     that.updateClass();
+    shadowRoot.appendChild(that.divElement);
     const buttonElement = document.createElement('button');
     buttonElement.innerHTML = "Update now";
     buttonElement.addEventListener('click', that.printButtonClick.bind(that));
-    that.divElement.appendChild(buttonElement);
-    shadowRoot.appendChild(that.divElement);
+    shadowRoot.appendChild(buttonElement);
 
     const styleElement = document.createElement('style');
     styleElement.textContent = style;
